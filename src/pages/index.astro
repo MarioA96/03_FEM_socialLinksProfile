@@ -1,16 +1,81 @@
 ---
+import '../index.css';
+
+import { css } from '../../styled-system/css';
+
+import { MainStyles } from '../styles/index/MainStyles';
+import IndexLayout from '../layouts/index/index.layout.astro';
+
+interface User {
+	name: string;
+	location: string;
+	description: string;
+	avatar: string;
+	socials: {
+		name: string;
+		url: string;
+	}[];
+}
+
+const UserInfo: User = {
+	name: 'Jessica Randall',
+	location: 'London, UK',
+	description: `"Frontend developer and avid reader"`,
+	avatar: '/09-FEM_multiStepForm/assets/images/avatar-jessica.jpeg',
+	socials: [
+		{
+			name: 'GitHub',
+			url: 'https://github.com',
+		},
+		{
+			name: 'Frontend Mentor',
+			url: 'https://frontendmentor.io',
+		},
+		{
+			name: 'LinkedIn',
+			url: 'https://www.linkedin.com/in/jessica-randall',
+		},
+		{
+			name: 'Twitter',
+			url: 'https://www.x.com',
+		},
+		{
+			name: 'Instagram',
+			url: 'https://instagram.com',
+		},
+	]
+}
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<IndexLayout>
+	<main class={MainStyles({})}>
+		<div id="box_user">
+			<div id="box_user__avatar">
+				<img src=`${UserInfo.avatar}` alt="avatar" class={css({ width: '7rem', borderRadius: '50%' })} />
+			</div>
+			<div id="box_user__info">
+				<p class={css({ fontFamily: 'inter', fontSize: '1.5rem', fontWeight: '600', color: 'white'})}>
+					{UserInfo.name}
+				</p>
+				<p class={css({ fontFamily: 'inter', fontSize: '1rem', fontWeight: '600', color: 'lime.400' })}>
+					{UserInfo.location}
+				</p>
+			</div>
+			<div id="box_user__description">
+				<p class={css({ fontFamily: 'inter', fontSize: '1rem', fontWeight: '400', color: 'whitesmoke' })}>
+					{UserInfo.description}
+				</p>
+			</div>
+		</div>
+		<div id="box_socials">
+			{
+				UserInfo.socials.map((social, index) => (
+					<button type="button">
+						{social.name}
+					</button>
+				))
+			}
+		</div>
+	</main>
+</IndexLayout>

@@ -1,0 +1,13 @@
+@layer reset, base, tokens, recipes, utilities;
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/09-FEM_multiStepForm/assets/fonts/Inter-VariableFont_slnt.ttf');
+    font-style: normal;
+    font-display: swap;
+}
+
+
+:root {
+    --font-inter: 'Inter', sans-serif;
+}
