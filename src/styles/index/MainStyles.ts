@@ -32,7 +32,10 @@ export const MainStyles = cva({
 			width: '80%', 
 			alignContent: 'center', 
 			marginTop: '1.5rem',
-			'& button': {
+			'& li': {
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
 				width: '100%',
 				height: '2.5rem',
                 fontFamily: 'inter',
@@ -45,6 +48,13 @@ export const MainStyles = cva({
 					bg: 'lime.400',
 					color: 'black',
 					cursor: 'pointer'
+				},
+				"& a[id^='url_']": {
+					display: 'flex', 
+					width: '100%', 
+					height: '100%', 
+					alignItems: 'center', 
+					justifyContent: 'center'
 				}
 			}
 		}

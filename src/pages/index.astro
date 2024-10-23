@@ -33,7 +33,7 @@ const UserInfo: User = {
 		},
 		{
 			name: 'LinkedIn',
-			url: 'https://www.linkedin.com/in/jessica-randall',
+			url: 'https://www.linkedin.com',
 		},
 		{
 			name: 'Twitter',
@@ -68,14 +68,14 @@ const UserInfo: User = {
 				</p>
 			</div>
 		</div>
-		<div id="box_socials">
+		<ul id="box_socials">
 			{
 				UserInfo.socials.map((social, index) => (
-					<button type="button">
-						{social.name}
-					</button>
+					<li>
+						<a id={`url_${social.name}`} href={`${social.url}`} target="_blank">{social.name}</a>
+					</li>
 				))
 			}
-		</div>
+		</ul>
 	</main>
 </IndexLayout>
